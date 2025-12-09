@@ -1,0 +1,179 @@
+---
+import GalleryItem from "./GalleryItem.astro";
+import Copyright from "./Copyright.astro";
+
+// types.ts
+export interface GalleryItemType {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  category: string;
+}
+export interface GalleryType {
+  title: string;
+  subtitle: string;
+  items: GalleryItemType[];
+}
+
+// Data section
+const gallery: GalleryType = {
+  title: "Underwater",
+  subtitle: "水中写真のギャラリー",
+  items: [
+    {
+      src: "/img/underwater/dolphin1.webp",
+      alt: "ハシナガイルカの親子",
+      title: "ハシナガイルカ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/dolphin2.webp",
+      alt: "ハシナガイルカの家族at水面",
+      title: "ハシナガイルカ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/dolphin3.webp",
+      alt: "ハシナガイルカの家族at砂地",
+      title: "ハシナガイルカ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/ray.webp",
+      alt: "マダラトビエイ",
+      title: "マダラトビエイ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/monkseal.webp",
+      alt: "ハワイアンモンクシール",
+      title: "ハワイアンモンクシール",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/honu1.webp",
+      alt: "かっこいいアオウミガメ",
+      title: "アオウミガメ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/honu2.webp",
+      alt: "優雅に泳ぐアオウミガメ",
+      title: "アオウミガメ",
+      description: "アオウミガメ",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/honu3.webp",
+      alt: "光射す方へ泳ぐアオウミガメ",
+      title: "アオウミガメ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/honu4.webp",
+      alt: "光を浴びるアオウミガメ",
+      title: "アオウミガメ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/honu5.webp",
+      alt: "砂地で休むアオウミガメ",
+      title: "アオウミガメ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/whale1.webp",
+      alt: "ザトウクジラの親子",
+      title: "ザトウクジラ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/whale2.webp",
+      alt: "踊るザトウクジラ",
+      title: "ザトウクジラ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/whale3.webp",
+      alt: "神秘的なザトウクジラ",
+      title: "ザトウクジラ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/whale4.webp",
+      alt: "破壊力抜群なザトウクジラの尻尾",
+      title: "ザトウクジラ",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/fish1.webp",
+      alt: "魚群！！！",
+      title: "ワイドビュー",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/view1.webp",
+      alt: "沖縄の水中パラダイス",
+      title: "ワイドビュー",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/view2.webp",
+      alt: "光のカーテン",
+      title: "ワイドビュー",
+      description: "水中写真",
+      category: "Underwater",
+    },
+    {
+      src: "/img/underwater/cave.webp",
+      alt: "青い洞窟",
+      title: "洞窟",
+      description: "水中写真",
+      category: "Underwater",
+    },
+  ],
+};
+---
+
+<div
+  class="section h-screen overflow-y-auto py-24 flex flex-col bg-gradient-to-b from-[var(--color-bg)] to-neutral-900 scrollable lg:px-16 xl:px-24"
+>
+  <div class="container mx-auto px-4 text-center mb-12">
+    <h2
+      class="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 animate-reveal mb-3"
+    >
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-300"
+      >
+        {gallery.title}
+      </span>
+    </h2>
+    <p class="text-lg text-neutral-200 max-w-2xl mx-auto font-light">
+      {gallery.subtitle}
+    </p>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <div class="underwater-grid">
+      {gallery.items.map((item) => <GalleryItem {...item} />)}
+    </div>
+  </div>
+
+  <Copyright />
+</div>

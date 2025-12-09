@@ -1,0 +1,134 @@
+---
+// types.ts
+export interface ProfileType {
+  name: string;
+  image: string;
+  alt: string;
+  description: string;
+  resume: string;
+}
+export interface ButtonTextsType {
+  download: string;
+}
+export interface ContactMethodType {
+  icon: string;
+  text: string;
+  link?: string;
+}
+export interface DirectContactType {
+  title: string;
+  methods: ContactMethodType[];
+}
+
+export interface ContactType {
+  title: string;
+  subtitle: string;
+  directContact: DirectContactType;
+}
+
+// Data section
+const profile: ProfileType = {
+  name: "Ryuki Mikawa",
+  image: "/img/main.webp",
+  alt: "Profile Picture",
+  description: "フリーランスエンジニア＆フォトグラファー",
+  resume: "data/resume.pdf",
+};
+const contact: ContactType = {
+  title: "お問い合わせ",
+  subtitle: "お問い合わせ",
+  directContact: {
+    title: "お問い合わせはこちらから",
+    methods: [
+      {
+        icon: "fas fa-phone",
+        text: "+81 (090) 1813-9279",
+        link: "tel:+8109018139279",
+      },
+      {
+        icon: "fas fa-envelope",
+        text: "ryuki.mikawa@gmail.com",
+        link: "mailto:ryuki.mikawa@gmail.com",
+      },
+    ],
+  },
+};
+
+const buttonTexts: ButtonTextsType = {
+  download: "スキルシートはこちらから",
+};
+---
+
+<div
+  class="section h-screen overflow-y-auto py-24 flex flex-col bg-gradient-to-b from-[var(--color-bg)] to-neutral-900 scrollable lg:px-16 xl:px-24"
+>
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 gap-12">
+      <div class="flex flex-col md:flex-row gap-8 items-center lg:items-start">
+        <img
+          src={profile.image}
+          alt={profile.alt}
+          class="w-48 h-48 rounded-full object-cover mb-6 shadow-lg border-4 border-yellow-300/20 animate-reveal"
+        />
+        <div class="flex flex-col">
+          <h2
+            class="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 animate-reveal mb-3"
+          >
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-300"
+            >
+              {profile.name}
+            </span>
+          </h2>
+          <p class="text-neutral-200 text-base mb-6 text-left">
+            {profile.description}
+          </p>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4"
+          >
+            <!-- <a
+              href={profile.resume}
+              download
+              class="bg-yellow-300 hover:bg-yellow-400 text-black px-6 py-3 rounded-md text-lg font-medium transition-all flex items-center justify-center"
+            >
+              <i class="fas fa-download mr-2"></i>
+              {buttonTexts.download}
+            </a> -->
+          </div>
+          <div class="flex space-x-4">
+            <div class="flex flex-col justify-center space-y-6 animate-reveal">
+              <ul class="mb-6">
+                <h3 class="text-xl m-auto">エンジニア経歴（携わった開発）</h3>
+                <li class="mt-2">・介護管理システムの新規開発</li>
+                <li class="mt-1">・某大手旅行サイトのAPI開発</li>
+                <li class="mt-1">・大学の入学手続きシステム</li>
+                <li class="mt-1">・WMS基幹システムの新規開発（PL）</li>
+                <li class="mt-1">・某大手夜職サイトの保守・運用</li>
+              </ul>
+              <h3 class="text-xl font-semibold text-white mt-6">
+                {contact.directContact.title}
+              </h3>
+              {
+                contact.directContact.methods.map((method) => (
+                  <div class="flex items-center">
+                    <i class={`${method.icon} text-yellow-300 text-2xl mr-3`} />
+                    {method.link ? (
+                      <a
+                        href={method.link}
+                        class="text-neutral-200 hover:text-yellow-300 transition-colors "
+                      >
+                        {method.text}
+                      </a>
+                    ) : (
+                      <span class="text-neutral-200">{method.text}</span>
+                    )}
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
