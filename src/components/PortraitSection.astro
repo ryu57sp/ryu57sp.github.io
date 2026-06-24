@@ -1,0 +1,116 @@
+---
+import GalleryItem from "./GalleryItem.astro";
+import Copyright from "./Copyright.astro";
+
+// types.ts
+export interface GalleryItemType {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  category: string;
+}
+export interface GalleryType {
+  title: string;
+  subtitle: string;
+  items: GalleryItemType[];
+}
+
+// Data section
+const gallery: GalleryType = {
+  title: "Portrait",
+  subtitle: "ポートレート写真のギャラリー",
+  items: [
+    {
+      src: "/img/portrait/portrait1.webp",
+      alt: "那須高原の自然の中で",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait2.webp",
+      alt: "ハワイの自然の中で",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait3.webp",
+      alt: "海の傍で",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait4.webp",
+      alt: "茂みの向こうから",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait5.webp",
+      alt: "森を感じて",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait6.webp",
+      alt: "京都の景観を背景に",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait7.webp",
+      alt: "嵐山の大自然の中で",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait8.webp",
+      alt: "木陰に隠れて",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+    {
+      src: "/img/portrait/portrait9.webp",
+      alt: "休憩中に",
+      title: "ポートレート",
+      description: "ポートレート",
+      category: "Portrait",
+    },
+  ],
+};
+---
+
+<div
+  class="section h-screen overflow-y-auto py-24 flex flex-col bg-gradient-to-b from-[var(--color-bg)] to-neutral-900 scrollable lg:px-16 xl:px-24"
+>
+  <div class="container mx-auto px-4 text-center mb-12">
+    <h2
+      class="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 animate-reveal mb-3"
+    >
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-300"
+      >
+        {gallery.title}
+      </span>
+    </h2>
+    <p class="text-lg text-neutral-200 max-w-2xl mx-auto font-light">
+      {gallery.subtitle}
+    </p>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <div class="portrait-grid">
+      {gallery.items.map((item) => <GalleryItem {...item} />)}
+    </div>
+  </div>
+
+  <Copyright />
+</div>

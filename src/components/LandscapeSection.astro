@@ -1,0 +1,207 @@
+---
+import GalleryItem from "./GalleryItem.astro";
+import Copyright from "./Copyright.astro";
+
+// types.ts
+export interface GalleryItemType {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  category: string;
+}
+export interface GalleryType {
+  title: string;
+  subtitle: string;
+  items: GalleryItemType[];
+}
+
+// Data section
+const gallery: GalleryType = {
+  title: "Landscape",
+  subtitle: "自然風景写真のギャラリー",
+  items: [
+    {
+      src: "/img/landscape/waterfall1.webp",
+      alt: "大迫力な奥入瀬渓流の滝",
+      title: "奥入瀬渓流",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall2.webp",
+      alt: "隠れ家的な奥入瀬渓流の滝",
+      title: "奥入瀬渓流",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall3.webp",
+      alt: "大迫力な竜頭ノ滝",
+      title: "竜頭ノ滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall4.webp",
+      alt: "洞窟から見た鍋ヶ滝",
+      title: "鍋ヶ滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall5.webp",
+      alt: "大迫力な小野川不動滝",
+      title: "小野川不動滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall6.webp",
+      alt: "緑いっぱい夕日の滝",
+      title: "夕日の滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall7.webp",
+      alt: "癒される付知峡の滝",
+      title: "付知峡",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall8.webp",
+      alt: "見入ってしまう乗政大滝",
+      title: "乗政大滝",
+      description: "乗政大滝",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall9.webp",
+      alt: "大迫力な龍神の滝",
+      title: "龍神の滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/waterfall10.webp",
+      alt: "大迫力な苗名滝",
+      title: "苗名滝",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/view.webp",
+      alt: "雪が残る星峠の棚田",
+      title: "星峠の棚田",
+      description: "星峠の棚田",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunrise1.webp",
+      alt: "枝折峠の朝日",
+      title: "枝折峠",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunrise2.webp",
+      alt: "冬の富士山",
+      title: "富士山",
+      description: "富士山",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunrise3.webp",
+      alt: "神磯の鳥居の朝日",
+      title: "神磯の鳥居",
+      description: "神磯の鳥居",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunset1.webp",
+      alt: "アラモアナビーチの夕日",
+      title: "アラモアナビーチ",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunset2.webp",
+      alt: "三浦半島の夕日",
+      title: "三浦半島",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/sunset3.webp",
+      alt: "本荘マリーナの夕日",
+      title: "本荘マリーナ",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/star1.webp",
+      alt: "奄美大島の満点の星空",
+      title: "奄美大島",
+      description: "奄美大島",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/star2.webp",
+      alt: "木々の間から現れる天の川",
+      title: "モロカイ島",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/star3.webp",
+      alt: "木が映える星空写真",
+      title: "モロカイ島",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/star4.webp",
+      alt: "大迫力な天の川",
+      title: "オアフ島",
+      description: "風景写真",
+      category: "Landscape",
+    },
+    {
+      src: "/img/landscape/star5.webp",
+      alt: "戦場ヶ原の美しい星空",
+      title: "戦場ヶ原",
+      description: "風景写真",
+      category: "Landscape",
+    },
+  ],
+};
+---
+
+<div
+  class="section h-screen overflow-y-auto py-24 flex flex-col bg-gradient-to-b from-[var(--color-bg)] to-neutral-900 scrollable lg:px-16 xl:px-24"
+>
+  <div class="container mx-auto px-4 text-center mb-12">
+    <h2
+      class="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white z-10 animate-reveal mb-3"
+    >
+      <span
+        class="bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-300"
+      >
+        {gallery.title}
+      </span>
+    </h2>
+    <p class="text-lg text-neutral-200 max-w-2xl mx-auto font-light">
+      {gallery.subtitle}
+    </p>
+  </div>
+
+  <div class="container mx-auto px-4">
+    <div class="landscape-grid">
+      {gallery.items.map((item) => <GalleryItem {...item} />)}
+    </div>
+  </div>
+
+  <Copyright />
+</div>
