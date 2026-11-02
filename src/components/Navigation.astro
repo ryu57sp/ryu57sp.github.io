@@ -1,0 +1,32 @@
+---
+interface MenuItem {
+  name: string;
+  icon: string;
+  slide: number;
+}
+
+const menuItems: MenuItem[] = [
+  { name: "Home", icon: "fa-home", slide: 0 },
+  { name: "Profile", icon: "fa-user", slide: 1 },
+  { name: "Underwater", icon: "fa-camera", slide: 2 },
+  { name: "Landscape", icon: "fa-camera", slide: 3 },
+  { name: "Portrait", icon: "fa-camera", slide: 4 },
+];
+---
+
+<nav>
+  <ul>
+    {
+      menuItems.map((item, index) => (
+        <li
+          class="menu-item py-4 px-6 flex flex-col items-center gap-1 cursor-pointer"
+          x-bind:class={`{ 'text-color-accent': activeSlide === ${item.slide} }`}
+          x-on:click={`goToSlide(${item.slide})`}
+        >
+          <i class={`fas ${item.icon} text-xl`} />
+          <span class="menu-text text-xs">{item.name}</span>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
